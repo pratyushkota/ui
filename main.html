@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes or No Question</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Will you be my Valentine ?</h2>
+    <img src="https://media.tenor.com/VIChDQ6ejRQAAAAj/jumping-bear-hearts-no-png.gif" alt="Jumping Bear" width="150">
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let size = 16;
+        let noTexts = ["No", "Don't break my heart", "Please reconsider", "Please!!!"];
+        let noIndex = 0;
+        
+        noButton.addEventListener("click", function() {
+            size += 5;
+            yesButton.style.fontSize = size + "px";
+            yesButton.style.padding = (size / 2) + "px " + (size) + "px";
+            noIndex = (noIndex + 1) % noTexts.length;
+            noButton.textContent = noTexts[noIndex];
+        });
+        
+        yesButton.addEventListener("click", function() {
+            document.body.innerHTML = `
+                <h1 style="font-size: 32px; font-weight: bold;">Yeahh!!!</h1>
+                <img src="https://media.tenor.com/PXKZhCEfEfsAAAAj/bubu-bubu-dudu.gif" alt="Jumping Bear" width="150">
+            `;
+        });
+    </script>
+</body>
+</html>
